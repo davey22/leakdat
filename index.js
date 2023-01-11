@@ -15,9 +15,9 @@
 
 const SCREEN_WIDTH = window.screen.availWidth
 const SCREEN_HEIGHT = window.screen.availHeight
-const WIN_WIDTH = 500
+const WIN_WIDTH = 480
 const WIN_HEIGHT = 260
-const VELOCITY = 20
+const VELOCITY = 15
 const MARGIN = 10
 const TICK_LENGTH = 50
 
@@ -51,21 +51,20 @@ const ART = [
 ]
 
 const SEARCHES = [
-  'long glizzys near me',
-  'why does my eye twitch',
-  'why is my poop green',
-  'why do i feel so empty',
-  'why do i always feel hungry',
-  'why do i always have diarrhea',
+  'twerking lessons',
+  'gay rough anal',
+  'pornhub',
+  'sorry bucko',
+  'why is my anus always red',
+  'how to twerk better',
   'why does my anus itch',
-  'why does my bootyhole itch?',
-  'why does my cat attack me',
-  'why does my dog eat poop',
-  'why does my fart smell so bad',
-  'big fortnite girls',
-  'why does my pee smell bad',
-  'why does my poop float',
-  'proof that the earth is flat'
+  'how to tell if your gay',
+  'gay test',
+  'gay porn',
+  'how to suck pp',
+  'how to not be gay',
+  'how to act straight',
+  'is 2 inches average'
 ]
 
 const VIDEOS = [
@@ -187,28 +186,10 @@ init()
 if (isChildWindow) initChildWindow()
 else initParentWindow()
 
-function openFullscreen(elem) {
-  if (elem.requestFullscreen) {
-    elem.requestFullscreen();
-  } else if (elem.webkitRequestFullscreen) { /* Safari */
-    elem.webkitRequestFullscreen();
-  } else if (elem.msRequestFullscreen) { /* IE11 */
-    elem.msRequestFullscreen();
-  }
-}
-
-function edpthem(){
-  let frame = document.createElement("video")
-  frame.src = "EDP445_ I flooded the toilet at Chipotle.mp4"
-  document.body.appendChild(frame)
-  openFullscreen(frame)
-}
-
 /**
  * Initialization code for *both* parent and child windows.
  */
 function init () {
-  edpthem()
   confirmPageUnload()
 
   interceptUserInput(event => {
@@ -274,7 +255,6 @@ function initChildWindow () {
   speak()
   rainbowThemeColor()
   animateUrlWithEmojis()
-  edpthem()
 
   interceptUserInput(event => {
     if (interactionCount === 1) {
@@ -992,6 +972,18 @@ function showAlert () {
   const randomArt = getRandomArrayEntry(ART)
   const longAlertText = Array(200).join(randomArt)
   window.alert(longAlertText)
+}
+
+/**
+ * Fullscreen the browser window
+ */
+function requestFullscreen () {
+  const requestFullscreen = Element.prototype.requestFullscreen ||
+    Element.prototype.webkitRequestFullscreen ||
+    Element.prototype.mozRequestFullScreen ||
+    Element.prototype.msRequestFullscreen
+
+  requestFullscreen.call(document.body)
 }
 
 /**
